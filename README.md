@@ -40,7 +40,7 @@ Subtema **“Budaya”** dipilih karena kami percaya bahwa budaya adalah identit
 #### **Metode 1: Langsung di Browser (Offline/Online)**  
 1. **Download** folder proyek atau clone repository:  
    ```bash
-   git clone https://github.com/username/maenklung.git
+   git clone https://github.com/ChieJuwonsFx/MAENKLUNG.git
    ```
 2. Buka file `index.html` di browser favorit Anda (Chrome/Firefox/Edge).  
 
