@@ -120,12 +120,3 @@ Angklung adalah warisan budaya UNESCO asal Indonesia yang sarat makna. Proyek in
 <div align="center"> 
   <i>✨ "Teknologi bukan penghapus budaya, tapi pena untuk menuliskan ceritanya di era baru."</i>
 </div>  
-
----
-
-**🎶 Mainkan angklung virtual, lestarikan budaya nyata!**  
-
----
-
-
-> 🔥 **Tips**: Tambahkan GIF demo interaktif atau link deploy (jika sudah online) untuk meningkatkan engagement!  
