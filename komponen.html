@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAÉNKLUNG - Alat Musik Tradisional Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brown-warm': '#732B2C',
+            'brown-light': '#D2B48C',
+            'orange-warm': '#FF8C00',
+            'brown-dark': '#361712',
+            'white-fd': '#FDFDFD'
+
+          },
+          fontFamily: {
+            'merriweather': ['Merriweather', 'serif'],
+            'sans': ['Merriweather', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding-bottom: 10px;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 500px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .hotspot {
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .tooltip {
+      position: absolute;
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #361712;
+      color: #361712;
+      font-family: 'Georgia', serif;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 250px;
+      display: none;
+      z-index: 1000;
+      pointer-events: none;
+      transform: translateY(-50%);
+      margin-top: 10px;
+    }
+
+    .tooltip.visible {
+      display: block;
+    }
+
+    .dotted-line {
+      position: absolute;
+      border-top: 2px dotted #361712;
+      height: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: brown;
+      border-radius: 50%;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .palang {
+      top: 220px;
+      left: 100px;
+      width: 60%;
+      height: 4%;
+    }
+
+    .pengikat {
+      top: 200px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+    }
+
+    .sora {
+      top: 54%;
+      left: 130px;
+      width: 10%;
+      height: 20%;
+    }
+
+    .jejer {
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 20%;
+    }
+
+    .tatapakan {
+      bottom: 50px;
+      left: 50px;
+      width: 400px;
+      height: 50px;
+    }
+
+    .tooltip h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #361712;
+    }
+
+    .tooltip p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #361712;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+      }
+
+      .tooltip {
+        max-width: 200px;
+        transform: none;
+        margin-top: 0;
+        bottom: 100%;
+        top: auto !important;
+      }
+
+      .tatapakan {
+        bottom: 10%;
+      }
+
+      .tooltip h3 {
+        font-size: 1rem;
+      }
+
+      .palang {
+        top: 140px;
+        left: 50px;
+        width: 80%;
+        height: 7%;
+      }
+
+      .pengikat {
+        top: 255px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .sora {
+        top: 54%;
+        left: 90px;
+        width: 10%;
+        height: 20%;
+      }
+
+      .jejer {
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 20%;
+      }
+
+      .tatapakan {
+        bottom: 30px;
+        left: 0px;
+        width: 320px;
+        height: 50px;
+      }
+
+      .tooltip p {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .hotspot {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-white-fd font-merriweather">
+  <!-- Header -->
+  <header class="bg-white shadow-sm fixed w-full top-0 z-50 ">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <h1 class="text-xl font-bold text-brown-dark">MAÉNKLUNG</h1>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="index.html" class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Home</a>
+            <a href="jenis.html"
+              class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Jenis-Jenis</a>
+            <a href="komponen.html"
+              class="text-brown-dark border-b-2 border-brown-warm px-3 py-2 text-sm font-medium">Komponen</a>
+            <a href="sejarah.html"
+              class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Sejarah</a>
+            <a href="tutorial.html"
+              class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Tutorial</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-brown-dark hover:text-brown-warm">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white-fd fixed w-full top-16 left-0 shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+        <a href="index.html" class="text-brown-dark block px-3 py-2 text-base font-medium">Home</a>
+        <a href="jenis.html"
+          class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Jenis-Jenis</a>
+        <a href="komponen.html"
+          class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Komponen</a>
+        <a href="sejarah.html"
+          class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Sejarah</a>
+        <a href="tutorial.html"
+          class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Tutorial</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-white py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
+        <div class="z-10 relative">
+
+          <h1 class="text-4xl lg:text-5xl font-bold text-brown-dark mb-4">Mengenal Lebih Dekat Komponen Angklung</h1>
+          <p class="text-sm md:text-base text-gray-700 mb-6">Suara merdu angklung tak lepas dari keunikan struktur
+            bambunya. Yuk, pelajari tiap bagiannya dan temukan bagaimana harmoninya tercipta.</p>
+          <button
+            class="bg-brown-warm text-white text-sm md:text-base px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">
+            <a href="#anatomi">Mulai Jelajahi</a>
+          </button>
+        </div>
+        <div class="relative z-10">
+          <div class=" overflow-hidden ">
+            <img src="assets/header-komponen.png" alt="Angklung Performance" class="w-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Anatomi Section -->
+  <section id="anatomi" class="relative bg-white py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="z-10 relative lg:pr-8">
+          <h1 class="text-xl lg:text-2xl text-brown-dark mb-4">Anatomi Angklung</h1>
+          <p class="text-4xl md:text-5xl font-black text-brown-dark mb-6">ANGKLUNG</p>
+          <p class="text-sm md:text-base/8 text-brown-dark">
+            Angklung bukan sekadar alat musik tradisional—ia adalah karya seni akustik yang dibentuk dengan penuh
+            ketelitian. Di balik setiap nada yang terdengar, terdapat rangkaian komponen bambu yang saling bersinergi
+            untuk menghasilkan suara yang khas dan menggugah rasa.
+
+            <br><br>Pada ilustrasi di samping, kamu bisa melihat susunan bagian-bagian utama angklung yang terdiri dari
+            tabung, palang, dan rangka pendukung lainnya. Setiap komponen ini memiliki peran penting dalam menciptakan
+            resonansi dan nada yang tepat. Yuk, klik atau arahkan kursor ke bagian-bagian angklung untuk mengenal lebih
+            dekat fungsinya satu per satu!
+          </p>
+        </div>
+        <div class="relative z-100 lg:pl-8">
+          <div class="overflow-hidden">
+            <div class="container">
+              <div class="image-container">
+                <img id="angklung-img" src="assets/angklung-default.png" alt="Angklung">
+              </div>
+
+              <!-- Hotspots -->
+              <div class="hotspot palang" data-img="assets/angklung-palang.png"
+                data-tooltip="<h3>Palang Gantung</h3><p>Elemen horizontal yang menjadi tempat menggantung tabung sora.</p>">
+              </div>
+
+              <div class="hotspot pengikat" data-img="assets/angklung-pengikat.png"
+                data-tooltip="<h3>Pengikat</h3><p>Tali atau anyaman yang menyatukan bagian-bagian angklung agar tetap kokoh dan tidak terlepas saat digoyangkan.</p>">
+              </div>
+
+              <div class="hotspot sora" data-img="assets/angklung-tabung-sora.png"
+                data-tooltip="<h3>Tabung Sora (Parungpung Laras)</h3><p>Tabung bambu vertikal yang menghasilkan nada atau suara saat digoyangkan atau digetarkan.</p>">
+              </div>
+
+              <div class="hotspot jejer" data-img="assets/angklung-jejer.png"
+                data-tooltip="<h3>Jejer (Tihang)</h3><p>Tiang vertikal pada rangka angklung yang menjadi penopang utama, menghubungkan bagian bawah (tatapakan) dengan palang gantung di atas.</p>">
+              </div>
+
+              <div class="hotspot tatapakan" data-img="assets/angklung-tatapakan.png"
+                data-tooltip="<h3>Tatapakan</h3><p>Tabung horizontal di bagian bawah angklung yang berfungsi sebagai dasar resonansi. Tabung sora akan berbenturan dengan tatapakan saat angklung digoyangkan, menghasilkan getaran suara.</p>">
+              </div>
+
+              <!-- Tooltip dan garis -->
+              <div id="tooltip" class="tooltip"></div>
+              <div id="dotted-line" class="dotted-line"></div>
+              <div id="dot-start" class="dot"></div>
+              <div id="dot-end" class="dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brown-dark text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm">&copy; 2025 MAÉNKLUNG. All Rights
+          Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+    const originalImg = "assets/angklung-default.png";
+    const imageElement = document.getElementById("angklung-img");
+    const tooltip = document.getElementById("tooltip");
+    const line = document.getElementById("dotted-line");
+    const dotStart = document.getElementById("dot-start");
+    const dotEnd = document.getElementById("dot-end");
+    const hotspots = document.querySelectorAll(".hotspot");
+    const container = document.querySelector(".container");
+
+    function positionTooltip(hotspot, hotspotRect, containerRect) {
+      const hotspotCenterX = hotspotRect.left + hotspotRect.width / 2 - containerRect.left;
+      const hotspotCenterY = hotspotRect.top + hotspotRect.height / 2 - containerRect.top;
+      const tooltipWidth = 250;
+      const tooltipHeight = 150;
+      const margin = 20;
+
+      if (hotspot.classList.contains('tatapakan')) {
+        tooltip.style.bottom = (containerRect.height - hotspotRect.top + 10) + 'px';
+        if (window.innerWidth <= 768) {
+          tooltip.style.bottom = '0';
+          tooltip.style.top = 'auto';
+        } else {
+          tooltip.style.bottom = 'auto';
+        }
+        tooltip.style.left = `${Math.max(10, hotspotCenterX - tooltipWidth / 2)}px`;
+
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const tooltipCenterX = tooltipRect.left + tooltipRect.width / 2 - containerRect.left;
+        const tooltipBottom = tooltipRect.bottom - containerRect.top;
+
+        const dx = hotspotCenterX - tooltipCenterX;
+        const dy = (hotspotRect.top - containerRect.top) - tooltipBottom;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+        line.style.width = `${distance}px`;
+        line.style.left = `${tooltipCenterX}px`;
+        line.style.top = `${tooltipBottom}px`;
+        line.style.transform = `rotate(${angle}deg)`;
+
+        dotStart.style.left = `${tooltipCenterX - 3}px`;
+        dotStart.style.top = `${tooltipBottom - 3}px`;
+        dotEnd.style.left = `${hotspotCenterX - 3}px`;
+        dotEnd.style.top = `${hotspotRect.top - containerRect.top - 3}px`;
+      }
+      else if (hotspot.classList.contains('jejer')) {
+        tooltip.style.top = (hotspotRect.bottom - containerRect.top + 10) + 'px';
+
+        if (window.innerWidth <= 768) {
+          tooltip.style.bottom = '0';
+          tooltip.style.top = 'auto';
+        } else {
+          tooltip.style.bottom = 'auto';
+        }
+        tooltip.style.left = `${Math.max(10, hotspotCenterX - tooltipWidth / 2)}px`;
+
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const tooltipCenterX = tooltipRect.left + tooltipRect.width / 2 - containerRect.left;
+        const tooltipTop = tooltipRect.top - containerRect.top;
+
+        const dx = hotspotCenterX - tooltipCenterX;
+        const dy = (hotspotRect.bottom - containerRect.top) - tooltipTop;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+        line.style.width = `${distance}px`;
+        line.style.left = `${tooltipCenterX}px`;
+        line.style.top = `${tooltipTop}px`;
+        line.style.transform = `rotate(${angle}deg)`;
+
+        dotStart.style.left = `${tooltipCenterX - 3}px`;
+        dotStart.style.top = `${tooltipTop - 3}px`;
+        dotEnd.style.left = `${hotspotCenterX - 3}px`;
+        dotEnd.style.top = `${hotspotRect.bottom - containerRect.top - 3}px`;
+      }
+      else {
+        const spaceRight = containerRect.width - hotspotCenterX - margin;
+        const spaceLeft = hotspotCenterX - margin;
+        const spaceTop = hotspotCenterY - margin;
+        const spaceBottom = containerRect.height - hotspotCenterY - margin;
+
+        if (spaceRight > tooltipWidth) {
+          tooltip.style.left = `${hotspotCenterX + margin}px`;
+          tooltip.style.top = `${Math.max(margin, Math.min(hotspotCenterY - tooltipHeight / 2, containerRect.height - tooltipHeight - margin))}px`;
+        }
+        else if (spaceLeft > tooltipWidth) {
+          tooltip.style.left = `${Math.max(margin, hotspotCenterX - tooltipWidth - margin)}px`;
+          tooltip.style.top = `${Math.max(margin, Math.min(hotspotCenterY - tooltipHeight / 2, containerRect.height - tooltipHeight - margin))}px`;
+        }
+        else {
+          if (spaceTop > spaceBottom) {
+            tooltip.style.top = `${Math.max(margin, hotspotCenterY - tooltipHeight - margin)}px`;
+            tooltip.style.left = `${Math.max(margin, Math.min(hotspotCenterX - tooltipWidth / 2, containerRect.width - tooltipWidth - margin))}px`;
+          } else {
+            tooltip.style.top = `${hotspotCenterY + margin}px`;
+            tooltip.style.left = `${Math.max(margin, Math.min(hotspotCenterX - tooltipWidth / 2, containerRect.width - tooltipWidth - margin))}px`;
+          }
+        }
+
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const tooltipCenterX = tooltipRect.left + tooltipRect.width / 2 - containerRect.left;
+        const tooltipCenterY = tooltipRect.top + tooltipRect.height / 2 - containerRect.top;
+
+        const dx = hotspotCenterX - tooltipCenterX;
+        const dy = hotspotCenterY - tooltipCenterY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+        line.style.width = `${distance}px`;
+        line.style.left = `${tooltipCenterX}px`;
+        line.style.top = `${tooltipCenterY}px`;
+        line.style.transform = `rotate(${angle}deg)`;
+
+        dotStart.style.left = `${tooltipCenterX - 3}px`;
+        dotStart.style.top = `${tooltipCenterY - 3}px`;
+        dotEnd.style.left = `${hotspotCenterX - 3}px`;
+        dotEnd.style.top = `${hotspotCenterY - 3}px`;
+      }
+    }
+
+    hotspots.forEach(hotspot => {
+      hotspot.addEventListener("mouseenter", () => {
+        const imgSrc = hotspot.dataset.img;
+        const text = hotspot.dataset.tooltip;
+
+        imageElement.src = imgSrc;
+        tooltip.innerHTML = text;
+        tooltip.classList.add("visible");
+
+        const containerRect = container.getBoundingClientRect();
+        const hotspotRect = hotspot.getBoundingClientRect();
+
+        positionTooltip(hotspot, hotspotRect, containerRect);
+
+        line.style.transformOrigin = '0 0';
+        line.style.display = 'block';
+        dotStart.style.display = 'block';
+        dotEnd.style.display = 'block';
+      });
+
+      hotspot.addEventListener("mouseleave", () => {
+        imageElement.src = originalImg;
+        tooltip.classList.remove("visible");
+        line.style.display = 'none';
+        dotStart.style.display = 'none';
+        dotEnd.style.display = 'none';
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (tooltip.classList.contains('visible')) {
+        const visibleHotspot = document.querySelector('.hotspot:hover');
+        if (visibleHotspot) {
+          const containerRect = container.getBoundingClientRect();
+          const hotspotRect = visibleHotspot.getBoundingClientRect();
+          positionTooltip(visibleHotspot, hotspotRect, containerRect);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

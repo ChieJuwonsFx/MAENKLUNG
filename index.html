@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAÉNKLUNG - Alat Musik Tradisional Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brown-warm': '#732B2C',
+                        'brown-light': '#D2B48C',
+                        'orange-warm': '#FF8C00',
+                        'brown-dark': '#361712',
+                        'white-fd': '#FDFDFD'
+
+                    },
+                    fontFamily: {
+                        'merriweather': ['Merriweather', 'serif'],
+                        'sans': ['Merriweather', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media (max-width: 767px) {
+            .card-mobile {
+                transition: all 0.3s ease;
+            }
+
+            .card-mobile.active {
+                margin-bottom: 1rem;
+            }
+
+            .toggle-btn::after {
+
+                float: right;
+                transition: transform 0.3s ease;
+            }
+
+
+        }
+    </style>
+
+</head>
+
+<body class="bg-white-fd font-merriweather">
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50 ">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-brown-dark">MAÉNKLUNG</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-brown-dark border-b-2 border-brown-warm px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="jenis.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Jenis-Jenis</a>
+                        <a href="komponen.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Komponen</a>
+                        <a href="sejarah.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Sejarah</a>
+                        <a href="tutorial.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Tutorial</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-brown-dark hover:text-brown-warm">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white-fd fixed w-full top-16 left-0 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="index.html" class="text-brown-dark block px-3 py-2 text-base font-medium">Home</a>
+                <a href="jenis.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Jenis-Jenis</a>
+                <a href="komponen.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Komponen</a>
+                <a href="sejarah.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Sejarah</a>
+                <a href="tutorial.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Tutorial</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-white py-16 overflow-hidden mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="z-10 relative">
+
+                    <h1 class="text-4xl lg:text-5xl font-bold text-brown-dark mb-4">Membangun
+                        Masa Depan Lewat Warisan Budaya</h1>
+                    <p class="text-sm md:text-base text-brown-dark mb-6">Dengan
+                        Teknologi dan Desain, Mari Lestarikan Angklung Agar
+                        Tetap Hidup di Era Digital.</p>
+                    <button
+                        class="bg-brown-warm text-white text-sm md:text-base px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">
+                        <a href="#know">Mulai Jelajahi</a>
+                    </button>
+                </div>
+                <div class="relative z-10">
+                    <div class=" overflow-hidden ">
+                        <img src="assets\hero-header-home-image.png" alt="Angklung Performance"
+                            class="w-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="know" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold text-brown-dark mb-6">TAHUKAH
+                        KAMU?</h2>
+                    <div class="space-y-4 text-brown-dark leading-relaxed">
+                        <p>Angklung merupakan alat musik tradisional khas
+                            Indonesia yang terbuat dari bambu dan dimainkan
+                            dengan cara digoyangkan. Angklung tidak hanya
+                            sekadar alat musik, tetapi juga simbol warisan
+                            budaya yang kaya akan nilai kebersamaan. Di
+                            balik kesederhanaan bentuknya, angklung
+                            menyimpan filosofi mendalam bahwa keharmonisan
+                            hanya tercipta ketika semua bagian bekerja sama.
+                            Hal ini merefleksikan nilai-nilai gotong royong
+                            yang telah lama menjadi ciri khas kehidupan
+                            masyarakat Indonesia.</p>
+
+                        <p>Kini, angklung tak hanya terdengat di tanah
+                            Sunda. Melalui diplomasi budaya dan semangat
+                            pelestarian seni, angklung telah melintas batas
+                            negara dan dimainkan oleh berbagai negara. Dalam
+                            perkembangannya, seni, pendidikan, hingga
+                            festival global, angklung terus menyuarakan
+                            pesan damai, keragaman, dan identitas bangsa
+                            yang kuat. Angklung bukan hanya musik ia adalah
+                            warisan yang hidup dan terus berbicara kepada
+                            dunia.</p>
+                    </div>
+
+                    <div class="grid grid-cols-3  mt-8 ">
+                        <div class="text-center border-l-4  border-brown-warm px-4">
+                            <p class="text-xs md:text-sm text-brown-dark mb-1">Tahun
+                                UNESCO</p>
+                            <p class="text-sm md:text-xl font-bold text-brown-dark mt-4 md:mt-0">18
+                                November 2010</p>
+                            <p class="text-xs md:text-sm text-brown-dark mt-4 md:mt-0">Sebagai Warisan
+                                Budaya Tak Benda</p>
+                        </div>
+                        <div class="text-center border-l-4  border-brown-warm px-4 ">
+                            <p class="text-xs md:text-sm text-brown-dark mb-1">Dipelajari
+                                Di</p>
+                            <p class="text-sm md:text-xl font-bold text-brown-dark mt-4 md:mt-0">20+
+                                Negara</p>
+                            <p class="text-xs md:text-sm text-brown-dark mt-8 md:mt-0">Dan Masuk
+                                Menjadi Bagian Pelajaran Musik</p>
+                        </div>
+                        <div class="text-center border-l-4 border-r-4  border-brown-warm px-4">
+                            <p class="text-xs md:text-sm text-brown-dark mb-1">Pecahan
+                                Rekor</p>
+                            <p class="text-sm md:text-xl font-bold text-brown-dark mt-4 md:mt-0">15.110
+                                Orang</p>
+                            <p class="text-xs md:text-sm text-brown-dark mt-4 md:mt-0">Bermain Secara
+                                Serentak Di GBK Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-1">
+                    <div class="overflow-hidden ">
+                        <img src="assets/home-image-1.png" alt="Angklung Players"
+                            class="w-0 h-0 md:w-full h-full mt-9 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class=" overflow-hidden ">
+                    <img src="assets/home-image-2.png" alt="Bamboo Angklung" class="w-full object-cover">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-brown-dark mb-6">MENGENAL
+                        ANGKLUNG LEBIH DEKAT</h2>
+                    <div class="space-y-4 text-brown-dark leading-relaxed">
+                        <p>Angklung adalah alat musik tradisional Indonesia
+                            yang berasal dari daerah Sunda, khususnya Jawa
+                            Barat. Terbuat dari potongan bambu yang disusun
+                            dan diikat sedemikian rupa, angklung
+                            menghasilkan nada saat digoyangkan. Suara yang
+                            dihasilkan bukan hanya musik, tapi juga
+                            menyampaikan keindahan alam dan harmoni
+                            kehidupan. Setiap angklung hanya menghasilkan
+                            satu nada, sehingga permainan angklung
+                            memerlukan kerjasama dan keselarasan antar
+                            pemain.</p>
+
+                        <p>Lebih dari sekadar alat musik, angklung adalah
+                            simbol identitas budaya yang telah diwariskan
+                            turun-temurun. Ia mengajarkan nilai-nilai
+                            penting seperti kolaborasi, kesederhanaan, dan
+                            semangat kebersamaan. Di era modern ini,
+                            angklung tak hanya hadir dalam upacara adat dan
+                            pentas seni, tapi juga dalam pendidikan dan
+                            permainan internasional. Menjadikan angklung
+                            bukan hanya seni musik, tapi juga tentang
+                            menjaga warisan, menyuarakan kedamaian, dan
+                            mempertahankan wajah Indonesia yang ramah dan
+                            penuh warna di seluruh dunia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brown-dark mb-4">BUNYI YANG
+                    PUNYA CERITA</h2>
+                <p class="text-lg text-brown-dark">Fakta-Fakta Mengenai
+                    Angklung Yang Harus Kamu Tahu</p>
+            </div>
+
+            <div id="desktopCardsContainer" class="hidden md:flex flex-row gap-4 w-full p-4 max-w-screen-xl mx-auto">
+                <div class="card group flex-[0.5] h-[521px] rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ease-in-out cursor-pointer"
+                    data-id="1">
+                    <div class="relative w-full h-full">
+                        <img src="assets/koin.png" alt="Indonesian Currency" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-end transition-all duration-300 p-6">
+                            <div class="text-white w-full">
+                                <div class="flex flex-col gap-2 items-center">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 transition-all duration-300 origin-center group-[.active]:relative group-[.active]:top-auto group-[.active]:left-auto group-[.active]:translate-x-0 group-[.active]:translate-y-0 group-[.active]:rotate-0">
+                                        <h3 class="text-3xl font-bold whitespace-nowrap text-center">MATA UANG INDONESIA
+                                        </h3>
+                                    </div>
+                                    <p
+                                        class="text-base text-center opacity-0 mt-0 transition-all duration-300 group-[.active]:opacity-100 group-[.active]:mt-2">
+                                        Untuk meningkatkan kesadaran dan kecintaan terhadap budaya lokal, pemerintah
+                                        Indonesia pernah memasukkan gambar angklung ke dalam desain mata uang koin
+                                        pecahan Rp1.000.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card group flex-[0.5] h-[521px] rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ease-in-out cursor-pointer"
+                    data-id="2">
+                    <div class="relative w-full h-full">
+                        <img src="assets/bambu-khusus.png" alt="Bamboo Crafts" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-end transition-all duration-300 p-6">
+                            <div class="text-white w-full">
+                                <div class="flex flex-col gap-2 items-center">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 transition-all duration-300 origin-center group-[.active]:relative group-[.active]:top-auto group-[.active]:left-auto group-[.active]:translate-x-0 group-[.active]:translate-y-0 group-[.active]:rotate-0">
+                                        <h3 class="text-3xl font-bold whitespace-nowrap text-center">BAMBU KHUSUS</h3>
+                                    </div>
+                                    <p
+                                        class="text-base text-center opacity-0 mt-0 transition-all duration-300 group-[.active]:opacity-100 group-[.active]:mt-2">
+                                        Tidak semua jenis bambu dapat digunakan untuk membuat angklung. Jenis bambu yang
+                                        biasa digunakan antara lain bambu hitam (awi wulung), bambu tali (awi apus), dan
+                                        bambu tutul.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card group flex-[0.5] h-[521px] rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ease-in-out cursor-pointer"
+                    data-id="3">
+                    <div class="relative w-full h-full">
+                        <img src="assets/asal-nama.png" alt="Angklung Origin" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-end transition-all duration-300 p-6">
+                            <div class="text-white w-full">
+                                <div class="flex flex-col gap-2 items-center">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 transition-all duration-300 origin-center group-[.active]:relative group-[.active]:top-auto group-[.active]:left-auto group-[.active]:translate-x-0 group-[.active]:translate-y-0 group-[.active]:rotate-0">
+                                        <h3 class="text-3xl font-bold whitespace-nowrap text-center">ASAL NAMA
+                                            "ANGKLUNG"</h3>
+                                    </div>
+                                    <p
+                                        class="text-base text-center opacity-0 mt-0 transition-all duration-300 group-[.active]:opacity-100 group-[.active]:mt-2">
+                                        Kata "angklung" berasal dari bahasa Sunda "angkleung-angkleungan", menggambarkan
+                                        gerakan tangan saat memainkan alat musik ini dan bunyi khas yang dihasilkan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card group flex-[0.5] h-[521px] rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ease-in-out cursor-pointer"
+                    data-id="4">
+                    <div class="relative w-full h-full">
+                        <img src="assets/diatonis.png" alt="Indonesian Currency" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-end transition-all duration-300 p-6">
+                            <div class="text-white w-full">
+                                <div class="flex flex-col gap-2 items-center">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 transition-all duration-300 origin-center group-[.active]:relative group-[.active]:top-auto group-[.active]:left-auto group-[.active]:translate-x-0 group-[.active]:translate-y-0 group-[.active]:rotate-0">
+                                        <h3 class="text-3xl font-bold whitespace-nowrap text-center">ANGKLUNG DIATONIS
+                                        </h3>
+                                    </div>
+                                    <p
+                                        class="text-base text-center opacity-0 mt-0 transition-all duration-300 group-[.active]:opacity-100 group-[.active]:mt-2">
+                                        Pada tahun 1938, Daeng Soetigna mengembangkan angklung diatonis yang
+                                        memungkinkan memainkan lagu-lagu internasional. Inovasi ini membawa angklung ke
+                                        panggung musik dunia.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobileCardsContainer" class="md:hidden grid grid-cols-1 gap-4 w-full p-4 max-w-screen-xl mx-auto">
+                <div class="card-mobile group h-auto rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative w-full h-64">
+                        <img src="assets/koin.png" alt="Indonesian Currency" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-6">
+                            <h3 class="text-xl font-bold text-white text-center">MATA UANG INDONESIA</h3>
+                        </div>
+                    </div>
+                    <div class="description p-4 bg-white text-brown-dark hidden group-[.active]:block">
+                        <p class="text-sm">Untuk meningkatkan kesadaran dan kecintaan terhadap budaya lokal, pemerintah
+                            Indonesia pernah memasukkan gambar angklung ke dalam desain mata uang koin pecahan Rp1.000.
+                        </p>
+                    </div>
+                    <button class="toggle-btn w-full py-2 bg-brown-warm text-white text-sm font-medium">
+                        Lihat Deskripsi
+                    </button>
+                </div>
+
+                <div class="card-mobile group h-auto rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative w-full h-64">
+                        <img src="assets/bambu-khusus.png" alt="Bamboo Crafts" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-6">
+                            <h3 class="text-xl font-bold text-white text-center">BAMBU KHUSUS</h3>
+                        </div>
+                    </div>
+                    <div class="description p-4 bg-white text-brown-dark hidden group-[.active]:block">
+                        <p class="text-sm">Tidak semua jenis bambu dapat digunakan untuk membuat angklung. Jenis bambu
+                            yang biasa digunakan antara lain bambu hitam (awi wulung), bambu tali (awi apus), dan bambu
+                            tutul.</p>
+                    </div>
+                    <button class="toggle-btn w-full py-2 bg-brown-warm text-white text-sm font-medium">
+                        Lihat Deskripsi
+                    </button>
+                </div>
+
+                <div class="card-mobile group h-auto rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative w-full h-64">
+                        <img src="assets/asal-nama.png" alt="Angklung Origin" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-6">
+                            <h3 class="text-xl font-bold text-white text-center">ASAL NAMA "ANGKLUNG"</h3>
+                        </div>
+                    </div>
+                    <div class="description p-4 bg-white text-brown-dark hidden group-[.active]:block">
+                        <p class="text-sm">Kata "angklung" berasal dari bahasa Sunda "angkleung-angkleungan",
+                            menggambarkan gerakan tangan saat memainkan alat musik ini dan bunyi khas yang dihasilkan.
+                        </p>
+                    </div>
+                    <button class="toggle-btn w-full py-2 bg-brown-warm text-white text-sm font-medium">
+                        Lihat Deskripsi
+                    </button>
+                </div>
+
+                <div class="card-mobile group h-auto rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative w-full h-64">
+                        <img src="assets/diatonis.png" alt="Indonesian Currency" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-6">
+                            <h3 class="text-xl font-bold text-white text-center">ANGKLUNG DIATONIS</h3>
+                        </div>
+                    </div>
+                    <div class="description p-4 bg-white text-brown-dark hidden group-[.active]:block">
+                        <p class="text-sm">Pada tahun 1938, Daeng Soetigna mengembangkan angklung diatonis yang
+                            memungkinkan memainkan lagu-lagu internasional. Inovasi ini membawa angklung ke panggung
+                            musik dunia.</p>
+                    </div>
+                    <button class="toggle-btn w-full py-2 bg-brown-warm text-white text-sm font-medium">
+                        Lihat Deskripsi
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-brown-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm">&copy; 2025 MAÉNKLUNG. All Rights
+                    Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.text-2xl.font-bold');
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                if (target.includes('18 November 2010') || target.includes('20+') || target.includes('15.110')) {
+                    counter.style.animation = 'pulse 2s infinite';
+                }
+            });
+        };
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.8; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        window.addEventListener('load', () => {
+            setTimeout(animateCounters, 1000);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const desktopCards = document.getElementById('desktopCardsContainer');
+            const mobileCards = document.getElementById('mobileCardsContainer');
+
+            function initCards() {
+                if (window.innerWidth < 768) {
+                    desktopCards.classList.add('hidden');
+                    mobileCards.classList.remove('hidden');
+                } else {
+                    desktopCards.classList.remove('hidden');
+                    mobileCards.classList.add('hidden');
+                    initDesktopCards();
+                }
+            }
+
+            function initDesktopCards() {
+                const cards = document.querySelectorAll('#desktopCardsContainer .card');
+                let activeCard = cards[0];
+
+                activeCard.classList.add('flex-[6]', 'active');
+
+                cards.forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        cards.forEach(c => {
+                            c.classList.remove('flex-[6]', 'active');
+                            c.classList.add('flex-[0.5]');
+                        });
+
+                        card.classList.remove('flex-[0.5]');
+                        card.classList.add('flex-[6]', 'active');
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        setTimeout(() => {
+                            if (![...cards].some(c => c.matches(':hover'))) {
+                                cards.forEach(c => {
+                                    c.classList.remove('flex-[6]', 'active');
+                                    c.classList.add('flex-[0.5]');
+                                });
+
+                                activeCard.classList.remove('flex-[0.5]');
+                                activeCard.classList.add('flex-[6]', 'active');
+                            }
+                        }, 100);
+                    });
+                });
+            }
+
+            document.querySelectorAll('.toggle-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const card = this.closest('.card-mobile');
+                    const content = card.querySelector('.description');
+                    const isActive = card.classList.contains('active');
+
+                    document.querySelectorAll('.card-mobile').forEach(c => {
+                        if (c !== card) {
+                            c.classList.remove('active');
+                            c.querySelector('.description').classList.add('hidden');
+                            c.querySelector('.toggle-btn').textContent = 'Lihat Deskripsi';
+                        }
+                    });
+
+                    if (isActive) {
+                        card.classList.remove('active');
+                        content.classList.add('hidden');
+                        this.textContent = 'Lihat Deskripsi';
+                    } else {
+                        card.classList.add('active');
+                        content.classList.remove('hidden');
+                        this.textContent = 'Tutup Deskripsi';
+                    }
+                });
+            });
+
+            initCards();
+
+            window.addEventListener('resize', function () {
+                initCards();
+            });
+        });
+    </script>
+</body>
+
+</html>

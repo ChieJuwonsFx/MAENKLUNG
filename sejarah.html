@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAÉNKLUNG - Alat Musik Tradisional Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brown-warm': '#732B2C',
+                        'brown-light': '#D2B48C',
+                        'orange-warm': '#FF8C00',
+                        'brown-dark': '#361712',
+                        'white-fd': '#FDFDFD'
+
+                    },
+                    fontFamily: {
+                        'merriweather': ['Merriweather', 'serif'],
+                        'sans': ['Merriweather', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white-fd">
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50 ">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-brown-dark">MAÉNKLUNG</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="jenis.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Jenis-Jenis</a>
+                        <a href="komponen.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Komponen</a>
+                        <a href="sejarah.html"
+                            class="text-brown-dark border-b-2 border-brown-warm px-3 py-2 text-sm font-medium">Sejarah</a>
+                        <a href="tutorial.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Tutorial</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-brown-dark hover:text-brown-warm">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white-fd fixed w-full top-16 left-0 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="index.html" class="text-brown-dark block px-3 py-2 text-base font-medium">Home</a>
+                <a href="jenis.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Jenis-Jenis</a>
+                <a href="komponen.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Komponen</a>
+                <a href="sejarah.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Sejarah</a>
+                <a href="tutorial.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Tutorial</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-white py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
+                <div class="z-10 relative">
+                    <p class="text-xs md:text-sm text-brown-dark mb-2">Sejarah</p>
+                    <h1 class="text-4xl lg:text-5xl font-bold text-brown-dark mb-4">ANGKLUNG</h1>
+                    <p class="text-lg md:text-xl text-brown-dark mb-6">Mengenal
+                        Angklung, Merawat Harmoni Nusantara</p>
+                    <button
+                        class="bg-brown-warm text-white text-sm md:text-base px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">
+                        <a href="#sejarah">Mulai Jelajahi</a>
+                    </button>
+                </div>
+                <div class="relative z-10">
+                    <div class="peeling-wrapper ">
+                        <img src="assets/header-sejarah.png" alt="Peeling paper image" class="peeling-image">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sejarah" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="hidden md:block flex-1 md:max-w-[20%] min-h-[150px] flex items-center justify-center">
+                    <img src="assets/historical-image-1.png" alt="historical-image-1"
+                        class="w-full h-full object-cover rounded-xl">
+                </div>
+
+                <div class="flex-1 flex flex-col gap-4">
+                    <div class="min-h-[100px]">
+                        <h2 class="text-3xl md:text-5xl  font-bold text-brown-dark mb-6 text-center md:text-left">
+                            SEJARAH
+                            ANGKLUNG</h2>
+                        <div class="space-y-4 text-sm md:text-base text-brown-dark leading-relaxed">
+                            <p>Angklung adalah alat musik tradisional yang
+                                berasal dari Jawa Barat, Indonesia,
+                                khususnya dari masyarakat Sunda. Nama
+                                "angklung" berasal dari bahasa Sunda, yakni
+                                "angkleung-angklungan", yang menggambarkan
+                                gerakan pemain saat memainkan alat musik
+                                ini. Bunyi yang dihasilkan mirip dengan kata
+                                "klung" saat digoyangkan.</p>
+
+                            <p>Dengan sejarah yang panjang dan kaya,
+                                angklung tidak hanya menjadi simbol budaya
+                                Sunda, tetapi juga identitas budaya
+                                Indonesia yang mendunia.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row md:flex-row gap-4 md:gap-8">
+                        <div class="flex-1 min-h-[100px] flex items-center justify-center">
+                            <img src="assets/historical-image-2.png" alt="historical-image-2"
+                                class="w-full h-full object-cover rounded-xl">
+                        </div>
+                        <div class="flex-1 min-h-[100px] flex items-center justify-center">
+                            <img src="assets/historical-image-3.png" alt="historical-image-3"
+                                class="w-full h-full object-cover rounded-xl">
+                        </div>
+                        <div class="flex-1 min-h-[100px] flex items-center justify-center">
+                            <img src="assets/historical-image-4.png" alt="historical-image-4"
+                                class="w-full h-full object-cover rounded-xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-8 md:py-16 bg-white-fd">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-brown-dark mb-2 md:mb-4">TIMELINE
+                    PERKEMBANGAN ANGKLUNG</h2>
+                <p class="text-sm md:text-base text-brown-dark">Perkembangan
+                    Angklung Dari Masa Ke Masa</p>
+            </div>
+
+            <div class="relative">
+                <div
+                    class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-brown-warm transform md:-translate-x-1/2">
+                </div>
+
+                <div class="space-y-8 md:space-y-16 ml-8 md:ml-0">
+                    <div class="relative flex flex-col md:flex-row md:items-start justify-between group">
+                        <div class="md:w-1/2 md:pr-8 md:text-right order-1 mb-4 md:mb-0">
+                            <div
+                                class="text-2xl md:text-4xl font-black bg-brown-warm py-4 md:py-6 px-4 md:px-8 rounded-md shadow-custom w-full md:w-[341px] text-center text-white inline-block">
+                                ABAD
+                                7-16</div>
+                        </div>
+
+                        <div class="absolute left-[-15px] md:left-1/2 transform -translate-x-1/2 top-6 md:top-6">
+                            <div
+                                class="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-brown-warm rounded-full relative z-10 shadow-md">
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 md:pl-8 order-2 md:order-2">
+                            <div class="bg-white transform transition-all duration-300 group-hover:-translate-y-1">
+                                <h3 class="text-xl md:text-2xl font-bold text-brown-dark mb-2">ASAL
+                                    USUL ANGKLUNG</h3>
+                                <p class="text-brown-dark text-sm md:text-base leading-relaxed">Angklung
+                                    diyakini telah ada sejak masa Kerajaan
+                                    Sunda di Jawa Barat. Alat musik ini
+                                    digunakan dalam upacara adat dan
+                                    keagamaan, seperti menghormati Dewi Sri,
+                                    dewi padi, untuk memohon kesuburan hasil
+                                    pertanian.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-start justify-between group">
+                        <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1 mb-4 md:mb-0">
+                            <div class="bg-white transform transition-all duration-300 group-hover:-translate-y-1">
+                                <h3 class="text-xl md:text-2xl font-bold text-brown-dark mb-2">INOVASI
+                                    ANGKLUNG DIATONIS</h3>
+                                <p class="text-brown-dark text-sm md:text-base leading-relaxed">Seorang
+                                    musisi asal Garut, Jawa Barat,
+                                    menciptakan angklung dengan tangga nada
+                                    diatonis, memungkinkan angklung
+                                    dimainkan dalam orkestra musik Barat
+                                    yang saat ini dikenal dengan nama
+                                    "Angklung Padaeng".</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute left-[-15px] md:left-1/2 transform -translate-x-1/2 top-6 md:top-6">
+                            <div
+                                class="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-brown-warm rounded-full relative z-10 shadow-md">
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 md:pl-8 order-1 md:order-2 mb-4 md:mb-0">
+                            <div
+                                class="text-2xl md:text-4xl font-black bg-brown-warm py-4 md:py-6 px-4 md:px-8 rounded-md shadow-custom w-full md:w-[341px] text-center text-white inline-block">
+                                1938</div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-start justify-between group">
+                        <div class="md:w-1/2 md:pr-8 md:text-right order-1 mb-4 md:mb-0">
+                            <div
+                                class="text-2xl md:text-4xl font-black bg-brown-warm py-4 md:py-6 px-4 md:px-8 rounded-md shadow-custom w-full md:w-[341px] text-center text-white inline-block">
+                                1955</div>
+                        </div>
+
+                        <div class="absolute left-[-15px] md:left-1/2 transform -translate-x-1/2 top-6 md:top-6">
+                            <div
+                                class="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-brown-warm rounded-full relative z-10 shadow-md">
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 md:pl-8 order-2">
+                            <div class="bg-white transform transition-all duration-300 group-hover:-translate-y-1">
+                                <h3 class="text-xl md:text-2xl font-bold text-brown-dark mb-2">ANGKLUNG
+                                    DALAM ORKESTRA INTERNASIONAL</h3>
+                                <p class="text-brown-dark text-sm md:text-base leading-relaxed">Angklung
+                                    pertama kali dimainkan dalam orkestra
+                                    internasional pada acara Konferensi
+                                    Asia-Afrika di Bandung, menandai
+                                    pengakuan global terhadap angklung.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-start justify-between group">
+                        <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1 mb-4 md:mb-0">
+                            <div class="bg-white transform transition-all duration-300 group-hover:-translate-y-1">
+                                <h3 class="text-xl md:text-2xl font-bold text-brown-dark mb-2">PENDIRIAN
+                                    SAUNG ANGKLUNG UDJO</h3>
+                                <p class="text-brown-dark text-sm md:text-base leading-relaxed">Seorang
+                                    murid dari Daeng Soetigna, yaitu Udjo
+                                    Ngalagena, mendirikan Saung Angklung
+                                    Udjo di Bandung sebagai pusat
+                                    pelestarian, pendidikan, dan
+                                    pengembangan angklung.</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute left-[-15px] md:left-1/2 transform -translate-x-1/2 top-6 md:top-6">
+                            <div
+                                class="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-brown-warm rounded-full relative z-10 shadow-md">
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 md:pl-8 order-1 md:order-2 mb-4 md:mb-0">
+                            <div
+                                class="text-2xl md:text-4xl font-black bg-brown-warm py-4 md:py-6 px-4 md:px-8 rounded-md shadow-custom w-full md:w-[341px] text-center text-white inline-block">
+                                1966</div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-start justify-between group">
+                        <div class="md:w-1/2 md:pr-8 md:text-right order-1 mb-4 md:mb-0">
+                            <div
+                                class="text-2xl md:text-4xl font-black bg-brown-warm py-4 md:py-6 px-4 md:px-8 rounded-md shadow-custom w-full md:w-[341px] text-center text-white inline-block">
+                                2010</div>
+                        </div>
+
+                        <div class="absolute left-[-15px] md:left-1/2 transform -translate-x-1/2 top-6 md:top-6">
+                            <div
+                                class="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-brown-warm rounded-full relative z-10 shadow-md">
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 md:pl-8 order-2">
+                            <div class="bg-white transform transition-all duration-300 group-hover:-translate-y-1">
+                                <h3 class="text-xl md:text-2xl font-bold text-brown-dark mb-2">PENGAKUAN
+                                    UNESCO</h3>
+                                <p class="text-brown-dark text-sm md:text-base leading-relaxed">Angklung
+                                    diakui sebagai Warisan Budaya Takbenda
+                                    Kemanusiaan oleh UNESCO, menegaskan
+                                    pentingnya angklung dalam budaya
+                                    Indonesia dan dunia.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-start justify-between group">
+                        <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1 mb-4 md:mb-0">
+                            <div class="bg-white transform transition-all duration-300 group-hover:-translate-y-1">
+                                <h3 class="text-xl md:text-2xl font-bold text-brown-dark mb-2">REKOR
+                                    DUNIA ANGKLUNG TERBESAR</h3>
+                                <p class="text-brown-dark text-sm md:text-base leading-relaxed">Indonesia
+                                    memecahkan rekor dunia dengan 15.110
+                                    peserta memainkan angklung bersama di
+                                    Stadion Bung Karno, Jakarta, mencatatkan
+                                    angklung sebagai pertunjukkan terbesar
+                                    di dunia.</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute left-[-15px] md:left-1/2 transform -translate-x-1/2 top-6 md:top-6">
+                            <div
+                                class="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-brown-warm rounded-full relative z-10 shadow-md">
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 md:pl-8 order-1 md:order-2 mb-4 md:mb-0">
+                            <div
+                                class="text-2xl md:text-4xl font-black bg-brown-warm py-4 md:py-6 px-4 md:px-8 rounded-md shadow-custom w-full md:w-[341px] text-center text-white inline-block">
+                                2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brown-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm">&copy; 2025 MAÉNKLUNG. All Rights
+                    Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    if (index % 2 === 0) {
+                        entry.target.style.transform = 'translateX(0)';
+                    } else {
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.relative.flex.items-start').forEach((item, index) => {
+            item.style.opacity = '0';
+            if (index % 2 === 0) {
+                item.style.transform = 'translateX(-30px)';
+            } else {
+                item.style.transform = 'translateX(30px)';
+            }
+            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            timelineObserver.observe(item);
+        });
+
+        const historicalPhotos = document.querySelectorAll('.grayscale');
+        historicalPhotos.forEach(photo => {
+            photo.addEventListener('mouseenter', () => {
+                photo.style.transform = 'scale(1.05)';
+            });
+
+            photo.addEventListener('mouseleave', () => {
+                photo.style.transform = 'scale(1)';
+            });
+        });
+
+        window.addEventListener('load', () => {
+            const heroSection = document.querySelector('.bg-cream');
+            heroSection.style.opacity = '0';
+            heroSection.style.transform = 'translateY(20px)';
+            heroSection.style.transition = 'opacity 1s ease, transform 1s ease';
+
+            setTimeout(() => {
+                heroSection.style.opacity = '1';
+                heroSection.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

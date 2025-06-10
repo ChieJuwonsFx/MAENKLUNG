@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Angklung - MAÉNKLUNG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brown-warm': '#732B2C',
+                        'brown-light': '#D2B48C',
+                        'orange-warm': '#FF8C00',
+                        'brown-dark': '#361712',
+                        'white-fd': '#FDFDFD',
+                        'beige': '#E9E6E6'
+                    },
+                    fontFamily: {
+                        'merriweather': ['Merriweather', 'serif'],
+                        'sans': ['Merriweather', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1rem;
+        }
+
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 0 1rem 1rem;
+        }
+
+        .accordion-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-arrow.active {
+            transform: rotate(180deg);
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #4E2811;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .image-clip {
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+
+        .circle-decoration {
+            border-radius: 50%;
+            position: absolute;
+            background-color: #8B4513;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+
+<body class="bg-white-fd">
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50 ">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-brown-dark">MAÉNKLUNG</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="jenis.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Jenis-Jenis</a>
+                        <a href="komponen.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Komponen</a>
+                        <a href="sejarah.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Sejarah</a>
+                        <a href="tutorial.html"
+                            class="text-brown-dark border-b-2 border-brown-warm px-3 py-2 text-sm font-medium">Tutorial</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-brown-dark hover:text-brown-warm">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white-fd fixed w-full top-16 left-0 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="index.html" class="text-brown-dark block px-3 py-2 text-base font-medium">Home</a>
+                <a href="jenis.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Jenis-Jenis</a>
+                <a href="komponen.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Komponen</a>
+                <a href="sejarah.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Sejarah</a>
+                <a href="tutorial.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Tutorial</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
+                <div class="relative">
+                    <div class="relative z-10 overflow-hidden rounded-3xl">
+                        <img src="assets/header-tutorial.png" alt="Angklung Player" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-4xl lg:text-5xl/16 font-bold text-brown-dark mb-2">BELAJAR & BERKARYA BERSAMA
+                        ANGKLUNG</h1>
+                    <p class="text-lg md:text-xl/8 text-brown-dark mb-6">Dari mengenal nada hingga merakit angklung
+                        sendiri temukan serunya perjalanan edukatif bersama warisan budaya yang mendunia ini!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white-fd">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 flex flex-col md:flex-row gap-8">
+                <div class="border-0 md:border-r-4 pr-8  border-brown-dark">
+                    <h2 class="text-xl md:text-2xl font-bold text-brown-dark">Tutorial Bermain</h2>
+                    <p class="text-3xl md:text-4xl font-bold text-brown-dark">ANGKLUNG</p>
+                </div>
+
+                <p class="text-brown-dark text-base md:text-lg leading-relaxed">Mulai Perjalanan Musikmu Dengan Alat
+                    Tradisional Indonesia Yang Unik Dan Penuh Makna. Yuk, Pelajari Cara Bermain Angklung Dari Dasar
+                    Dengan Langkah-Langkah Sederhana Yang Bisa Kamu Ikuti Di Rumah!</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="accordion-item bg-beige rounded-lg overflow-hidden ">
+                    <div class="accordion-header flex items-center justify-between p-4 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-brown-dark text-white flex items-center justify-center font-bold">
+                                1</div>
+                            <h3 class="text-xl font-bold text-brown-dark">Kenali Angklungmu</h3>
+                        </div>
+                        <button class="accordion-arrow">
+                            <svg class="w-6 h-6 text-brown-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-brown-dark leading-relaxed">
+                            Sebelum mulai, pastikan kamu tahu bagian-bagian penting dari angklung mulai dari tabung
+                            bambu, pengikut, hingga tempat menggenggamnya. Setiap angklung punya nada yang berbeda, jadi
+                            kenali nada dari angklung yang kamu pegang.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-beige rounded-lg overflow-hidden ">
+                    <div class="accordion-header flex items-center justify-between p-4 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-brown-dark text-white flex items-center justify-center font-bold">
+                                2</div>
+                            <h3 class="text-xl font-bold text-brown-dark">Cara Memegang Angklung</h3>
+                        </div>
+                        <button class="accordion-arrow">
+                            <svg class="w-6 h-6 text-brown-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-brown-dark leading-relaxed">
+                            Pegang angklung dengan tangan kiri pada bagian kerangka atas. Pastikan posisi angklung tegak
+                            dan stabil. Tangan kanan digunakan untuk menggoyang angklung dengan gerakan ke kanan dan ke
+                            kiri secara teratur untuk menghasilkan bunyi yang jernih.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-beige rounded-lg overflow-hidden ">
+                    <div class="accordion-header flex items-center justify-between p-4 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-brown-dark text-white flex items-center justify-center font-bold">
+                                3</div>
+                            <h3 class="text-xl font-bold text-brown-dark">Latihan Nada Dasar</h3>
+                        </div>
+                        <button class="accordion-arrow">
+                            <svg class="w-6 h-6 text-brown-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-brown-dark leading-relaxed">
+                            Mulailah dengan mempelajari nada dasar seperti do, re, mi, fa, sol, la, si, do. Latih satu
+                            per satu dengan menggoyang angklung secara konsisten. Dengarkan dengan seksama bunyi yang
+                            dihasilkan dan sesuaikan gerakan untuk mendapatkan suara yang jernih.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-beige rounded-lg overflow-hidden ">
+                    <div class="accordion-header flex items-center justify-between p-4 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-brown-dark text-white flex items-center justify-center font-bold">
+                                4</div>
+                            <h3 class="text-xl font-bold text-brown-dark">Bermain Angklung Secara Kelompok</h3>
+                        </div>
+                        <button class="accordion-arrow">
+                            <svg class="w-6 h-6 text-brown-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-brown-dark leading-relaxed">
+                            Bermain angklung dalam kelompok membutuhkan koordinasi yang baik. Setiap orang biasanya
+                            memegang satu atau dua angklung dengan nada berbeda. Perhatikan arahan konduktor dan mainkan
+                            angklung saat giliran nada Anda tiba. Kerjasama dan timing sangat penting untuk menghasilkan
+                            harmoni yang indah.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-beige rounded-lg overflow-hidden ">
+                    <div class="accordion-header flex items-center justify-between p-4 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-brown-dark text-white flex items-center justify-center font-bold">
+                                5</div>
+                            <h3 class="text-xl font-bold text-brown-dark">Tonton Dan Coba</h3>
+                        </div>
+                        <button class="accordion-arrow">
+                            <svg class="w-6 h-6 text-brown-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <div class="w-full h-0 pb-[56.25%] relative bg-black rounded-lg overflow-hidden">
+                                    <img src="assets/thumbnail-tutorial.png" alt="Tutorial Video Thumbnail"
+                                        class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <button
+                                            class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                            <svg class="w-8 h-8 text-brown-dark" fill="currentColor"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black to-transparent">
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 flex items-center justify-between p-2">
+                                        <div class="flex items-center">
+                                            <button class="text-white mr-4">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                                                </svg>
+                                            </button>
+                                            <button class="text-white mr-4">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M5.5 3a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-13a.5.5 0 00-.5-.5h-3zm6 0a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-13a.5.5 0 00-.5-.5h-3z" />
+                                                </svg>
+                                            </button>
+                                            <button class="text-white">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" />
+                                                </svg>
+                                            </button>
+                                            <span class="text-white text-xs ml-4">2:10 / 10:44</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <button class="text-white mr-3">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M10 3a7 7 0 100 14 7 7 0 000-14z" />
+                                                </svg>
+                                            </button>
+                                            <button class="text-white mr-3">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
+                                                </svg>
+                                            </button>
+                                            <button class="text-white">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M3 3a1 1 0 011-1h12a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V3z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-brown-dark leading-relaxed mb-4">
+                                    Belajar dari video akan membuat prosesnya jauh lebih mudah! Saksikan tutorial
+                                    singkat yang memperlihatkan langsung bagaimana cara memegang, menggoyang, dan
+                                    memainkan nada dari angklung dengan benar.
+                                </p>
+                                <a href="https://www.youtube.com/watch?v=7aCftg3ufyo"
+                                    class="flex items-center text-brown-dark hover:text-brown-warm">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                                    </svg>
+                                    https://www.youtube.com/watch?v=7aCftg3ufyo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-brown-dark mb-4">Bikin Angklung Sendiri? Bisa Banget!
+                </h2>
+                <p class="text-lg md:text-xl text-brown-dark">Yuk, pelajari cara membuat angklung secara sederhana!</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-center">
+                <div class="md:col-span-1">
+                    <img src="assets/image-step-1.png" alt="Bamboo Materials"
+                        class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+                <div class="md:col-span-2 relative">
+                    <div class="absolute -right-4 -top-4">
+                        <div class="step-circle">1</div>
+                    </div>
+                    <div class=" p-6 rounded-lg border border-brown-dark">
+                        <h3 class="textext-lg md:text-xl font-bold text-brown-dark mb-2">SIAPKAN ALAT DAN BAHAN</h3>
+                        <p class="text-sm text-brown-dark mb-2 ">Sebelum memulai, pastikan kamu sudah menyiapkan
+                            bahan-bahan ini, ya:</p>
+                        <ul class="list-disc pl-5 text-sm text-brown-dark space-y-2">
+                            <li>Bambu (diameter kecil hingga sedang)</li>
+                            <li>Gergaji kayu, penggaris, spidol, dan amplas</li>
+                            <li>Tali rotan atau tali nilon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-center">
+                <div class="md:col-span-2 relative order-2 md:order-1">
+                    <div class="absolute -right-4 -top-4">
+                        <div class="step-circle">2</div>
+                    </div>
+                    <div class=" p-6 rounded-lg border border-brown-dark">
+                        <h3 class="text-lg md:text-xl font-bold text-brown-dark mb-2">POTONG BAMBU SESUAI UKURAN</h3>
+                        <p class="text-sm text-brown-dark leading-relaxed">
+                            Tentukan berapa banyak nada yang ingin kamu buat. Makin panjang pada potongan, diameter
+                            semakin kecil. Gunakan penggaris untuk mengukur. Jika potong bambu sesuai ukuran yang
+                            diinginkan dengan hati-hati. Tip: Nada rendah biasanya dibuat dari bambu yang lebih besar
+                            dan panjang, sedangkan nada tinggi dari bambu yang lebih kecil dan pendek.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:col-span-1 order-1 md:order-2">
+                    <img src="assets/image-step-2.png" alt="Cutting Bamboo"
+                        class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-center">
+                <div class="md:col-span-1">
+                    <img src="assets/image-step-3.png" alt="Shaping Bamboo"
+                        class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+                <div class="md:col-span-2 relative">
+                    <div class="absolute -right-4 -top-4">
+                        <div class="step-circle">3</div>
+                    </div>
+                    <div class=" p-6 rounded-lg border border-brown-dark">
+                        <h3 class="text-lg md:text-xl font-bold text-brown-dark mb-2">BENTUK TABUNG SUARA</h3>
+                        <p class="text-sm text-brown-dark leading-relaxed">
+                            Potong bambu menjadi bagian penting yang harus dibuat adalah rangka resonansi. Potong bagian
+                            ujung bambu dengan membentuk sudut terbuka menyerupai bentuk U atau V, sekilar sepertigat
+                            dari panjang tabung. Bagian ini akan menjadi "bibir" angklung yang akan bergetar ketika
+                            digoyangkan. Gunakan amplas untuk menghaluskan permukaan dan menghilangkan serpihan tajam.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-center">
+                <div class="md:col-span-2 relative order-2 md:order-1">
+                    <div class="absolute -right-4 -top-4">
+                        <div class="step-circle">4</div>
+                    </div>
+                    <div class=" p-6 rounded-lg border border-brown-dark">
+                        <h3 class="text-lg md:text-xl font-bold text-brown-dark mb-2">RANGKAI TABUNG KE RANGKA UTAMA
+                        </h3>
+                        <p class="text-sm text-brown-dark leading-relaxed">
+                            Ambil satu batang bambu besar dan buat sebagai kerangka utama. Biasanya, setiap angklung
+                            terdiri dari dua atau tiga tabung dengan ukuran berbeda-beda. Gunakan tali rotan atau kawat
+                            tipis untuk mengikat tabung suara ke rangka utama. Pastikan tabung tidak terlalu kencang
+                            agar masih bisa bergetar dengan bebas saat digoyang. Posisi tabung harus pas agar suara yang
+                            dihasilkan sesuai dengan nada yang diinginkan.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:col-span-1 order-1 md:order-2">
+                    <img src="assets/image-step-4.png" alt="Assembling Angklung"
+                        class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-center">
+                <div class="md:col-span-1">
+                    <img src="assets/image-step-5.png" alt="Testing Angklung"
+                        class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+                <div class="md:col-span-2 relative">
+                    <div class="absolute -right-4 -top-4">
+                        <div class="step-circle">5</div>
+                    </div>
+                    <div class=" p-6 rounded-lg border border-brown-dark">
+                        <h3 class="text-lg md:text-xl font-bold text-brown-dark mb-2">UJI COBA DAN PENYESUAIAN NADA</h3>
+                        <p class="text-sm text-brown-dark leading-relaxed">
+                            Setelah selesai, goyangkan angklung pertama kali dan dengarkan. Dengarkan suara yang keluar
+                            lalu selaraskan dengan nada target, biasanya menggunakan piano atau alat musik lainnya. Jika
+                            nada terlalu rendah, potong sedikit bambu untuk memendekkan tabung untuk menambahkan nada.
+                            Menyesuaikan nada mungkin perlu beberapa percobaan dan kesabaran, jadi jangan khawatir kalau
+                            belum langsung sempurna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 relative order-2 md:order-1">
+                    <div class="absolute -right-4 -top-4">
+                        <div class="step-circle">6</div>
+                    </div>
+                    <div class=" p-6 rounded-lg border border-brown-dark">
+                        <h3 class="text-lg md:text-xl font-bold text-brown-dark mb-2">FINISHING HIAS DAN PERSONALISASI
+                        </h3>
+                        <p class="text-sm text-brown-dark leading-relaxed">
+                            Jika angklung sudah menghasilkan nada yang diinginkan, kamu bisa menghias dengan cat atau
+                            pernis untuk melindungi dari cuaca, serangga, atau untuk menambahkan nilai estetik yang
+                            personal. Kamu juga bisa menambahkan label pada setiap nada agar lebih mudah digunakan dalam
+                            permainan musik. Ini juga akan membantu jika kamu ingin membuat beberapa angklung untuk
+                            dimainkan bersama dalam kelompok.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:col-span-1 order-1 md:order-2">
+                    <img src="assets/image-step-6.png" alt="Finishing Angklung"
+                        class="w-full h-64 object-cover rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brown-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm">&copy; 2025 MAÉNKLUNG. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            const fifthAccordion = document.querySelector('.accordion-item:nth-child(5)');
+            if (fifthAccordion) {
+                const fifthContent = fifthAccordion.querySelector('.accordion-content');
+                const fifthArrow = fifthAccordion.querySelector('.accordion-arrow');
+                fifthContent.classList.add('active');
+                fifthArrow.classList.add('active');
+            }
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const accordionItem = header.parentElement;
+                    const accordionContent = header.nextElementSibling;
+                    const accordionArrow = header.querySelector('.accordion-arrow');
+
+                    accordionContent.classList.toggle('active');
+                    accordionArrow.classList.toggle('active');
+
+                    document.querySelectorAll('.accordion-item').forEach(item => {
+                        if (item !== accordionItem) {
+                            const content = item.querySelector('.accordion-content');
+                            const arrow = item.querySelector('.accordion-arrow');
+                            content.classList.remove('active');
+                            arrow.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        const videoThumbnail = document.querySelector('.aspect-w-16');
+        if (videoThumbnail) {
+            videoThumbnail.addEventListener('click', () => {
+                const videoUrl = "https://www.youtube.com/embed/7aCftg3ufyo?autoplay=1";
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', videoUrl);
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', '1');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.style.position = 'absolute';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+
+                const thumbnailContainer = videoThumbnail.querySelector('.relative');
+                thumbnailContainer.innerHTML = '';
+                thumbnailContainer.appendChild(iframe);
+            });
+        }
+
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const stepObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step-circle').forEach(step => {
+            const stepContainer = step.closest('.grid');
+            stepContainer.style.opacity = '0';
+            stepContainer.style.transform = 'translateY(30px)';
+            stepContainer.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            stepObserver.observe(stepContainer);
+        });
+    </script>
+</body>
+
+</html>

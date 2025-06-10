@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenis-Jenis Angklung - MAÉNKLUNG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brown-warm': '#732B2C',
+                        'brown-light': '#D2B48C',
+                        'orange-warm': '#FF8C00',
+                        'brown-dark': '#361712',
+                        'white-fd': '#FDFDFD'
+
+                    },
+                    fontFamily: {
+                        'merriweather': ['Merriweather', 'serif'],
+                        'sans': ['Merriweather', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slider-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .angklung-card {
+            flex: 0 0 calc(25% - 15px);
+            min-width: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        @media (max-width: 1023px) {
+            .angklung-card {
+                flex: 0 0 calc(33.333% - 13.333px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .angklung-card {
+                flex: 0 0 calc(50% - 10px);
+            }
+        }
+
+
+        .angklung-card:hover {
+            flex: 0 0 calc(50% - 20px);
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .angklung-card:hover+.angklung-card {
+            margin-left: 10px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .angklung-card:not(:hover) {
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 767px) {
+            .angklung-card:hover {
+                flex: 0 0 calc(100% - 20px);
+            }
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: #361712;
+            padding: 20px;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            margin: 12px;
+        }
+
+        .card-description {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            opacity: 0;
+        }
+
+        .angklung-card:hover .card-description {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 10px;
+        }
+
+        .expand-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .angklung-card:hover .expand-icon {
+            background: rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+
+<body class="bg-white-fd">
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50 ">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-brown-dark">MAÉNKLUNG</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="jenis.html"
+                            class="text-brown-dark border-b-2 border-brown-warm px-3 py-2 text-sm font-medium">Jenis-Jenis</a>
+                        <a href="komponen.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Komponen</a>
+                        <a href="sejarah.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Sejarah</a>
+                        <a href="tutorial.html"
+                            class="text-brown-dark hover:text-brown-warm px-3 py-2 text-sm font-medium">Tutorial</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-brown-dark hover:text-brown-warm">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white-fd fixed w-full top-16 left-0 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="index.html" class="text-brown-dark block px-3 py-2 text-base font-medium">Home</a>
+                <a href="jenis.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Jenis-Jenis</a>
+                <a href="komponen.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Komponen</a>
+                <a href="sejarah.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Sejarah</a>
+                <a href="tutorial.html"
+                    class="text-brown-dark hover:text-brown-warm block px-3 py-2 text-base font-medium">Tutorial</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-white-fd py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative rounded-3xl overflow-hidden">
+                <img src="assets/header-jenis-jenis.png" alt="Header Jenis-Jenis Angklung">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white-fd">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-base md:text-3xl font-bold text-brown-dark mb-2">JENIS-JENIS ANGKLUNG NUSANTARA</h2>
+                    <p class="text-xs md:text-lg text-brown-dark">Ragam Angklung, Kekayaan Nada Dari Setiap Daerah</p>
+                </div>
+                <div><img src="assets/line.png" alt="line" class="w-0 md:w-[506px] center"></div>
+                <div class="flex gap-2">
+                    <button id="prev-btn"
+                        class="w-10 h-10 rounded-full border-2 border-brown-warm text-brown-warm hover:bg-brown-warm hover:text-white transition duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button id="next-btn"
+                        class="w-10 h-10 rounded-full border-2 border-brown-warm text-brown-warm hover:bg-brown-warm hover:text-white transition duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="slider-container" id="slider">
+                <div class="flex gap-4 pb-4">
+                    <div class="angklung-card bg-white rounded-lg shadow-lg cursor-pointer">
+                        <div class="relative h-64">
+                            <img src="assets/image-slide-1.png" alt="Angklung Badeng"
+                                class="w-full h-full object-cover rounded-t-lg">
+                            <div class="card-content bg-white">
+                                <h3 class="text-base md:text-lg font-bold">ANGKLUNG BADENG</h3>
+                                <p class="text-xs md:text-sm opacity-90">Garut, Jawa Barat</p>
+                                <div class="card-description">
+                                    <p class="text-[10px] md:text-sm leading-relaxed">Angklung Badeng merupakan alat
+                                        musik tradisional yang berasal dari Kabupaten Garut, Jawa Barat. Alat musik ini
+                                        digunakan dalam upacara adat dan keagamaan, seperti menghormati Dewi Sri, dewi
+                                        padi, untuk memohon kesuburan hasil pertanian. Angklung Badeng memiliki ciri
+                                        khas berupa suara yang merdu dan harmonis, serta memiliki makna spiritual yang
+                                        dalam bagi masyarakat setempat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="angklung-card bg-white rounded-lg shadow-lg cursor-pointer">
+                        <div class="relative h-64">
+                            <img src="assets/image-slide-2.png" alt="Angklung Gubrag"
+                                class="w-full h-full object-cover rounded-t-lg">
+                            <div class="card-content bg-white">
+                                <h3 class="text-base md:text-lg font-bold">ANGKLUNG GUBRAG</h3>
+                                <p class="text-xs md:text-sm opacity-90">Bogor, Jawa Barat</p>
+                                <div class="card-description">
+                                    <p class="text-[10px] md:text-sm leading-relaxed">Angklung Gubrag adalah alat musik
+                                        tradisional yang berasal dari Kabupaten Bogor, Jawa Barat. Alat musik ini
+                                        memiliki keunikan tersendiri dengan suara yang khas dan merdu. Gubrag sendiri
+                                        berasal dari kata "gubrag" yang berarti bunyi gemuruh atau suara keras. Angklung
+                                        ini biasanya dimainkan dalam acara-acara adat dan upacara keagamaan di daerah
+                                        Bogor dan sekitarnya.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="angklung-card bg-white rounded-lg shadow-lg cursor-pointer">
+                        <div class="relative h-64">
+                            <img src="assets/image-slide-3.png" alt="Angklung Buncis"
+                                class="w-full h-full object-cover rounded-t-lg">
+                            <div class="card-content bg-white">
+                                <h3 class="text-base md:text-lg font-bold">ANGKLUNG BUNCIS</h3>
+                                <p class="text-xs md:text-sm opacity-90">Garut, Jawa Barat</p>
+                                <div class="card-description">
+                                    <p class="text-[10px] md:text-sm leading-relaxed">Angklung Buncis adalah varian
+                                        angklung yang berasal dari Kabupaten Garut, Jawa Barat. Nama "Buncis" diambil
+                                        dari kata yang menggambarkan bentuk atau karakteristik khusus dari angklung ini.
+                                        Alat musik ini memiliki suara yang unik dan berbeda dari jenis angklung lainnya,
+                                        serta memiliki peran penting dalam tradisi musik Sunda di wilayah Garut.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="angklung-card bg-white rounded-lg shadow-lg cursor-pointer">
+                        <div class="relative h-64">
+                            <img src="assets/image-slide-4.png" alt="Angklung Dogdog Lojor"
+                                class="w-full h-full object-cover rounded-t-lg">
+                            <div class="card-content bg-white">
+                                <h3 class="text-base md:text-lg font-bold">ANGKLUNG DOGDOG LOJOR</h3>
+                                <p class="text-xs md:text-sm opacity-90">Kasepuhan Adat Banten Kidul</p>
+                                <div class="card-description">
+                                    <p class="text-[10px] md:text-sm leading-relaxed">Angklung Dogdog Lojor adalah alat
+                                        musik tradisional yang berasal dari Kasepuhan Adat Banten Kidul. Alat musik ini
+                                        memiliki keunikan tersendiri karena biasanya dimainkan bersama dengan dogdog
+                                        (kendang besar) dalam upacara adat. "Lojor" dalam bahasa Sunda berarti panjang,
+                                        yang menggambarkan bentuk fisik dari angklung ini yang memiliki tabung bambu
+                                        yang relatif panjang.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="angklung-card bg-white rounded-lg shadow-lg cursor-pointer">
+                        <div class="relative h-64">
+                            <img src="assets/image-slide-5.png" alt="Angklung Padaeng"
+                                class="w-full h-full object-cover rounded-t-lg">
+                            <div class="card-content bg-white">
+                                <h3 class="text-base md:text-lg font-bold">ANGKLUNG PADAENG</h3>
+                                <p class="text-xs md:text-sm opacity-90">Garut, Jawa Barat</p>
+                                <div class="card-description">
+                                    <p class="text-[10px] md:text-sm leading-relaxed">Angklung Padaeng adalah hasil
+                                        inovasi dari angklung yang dikembangkan oleh Daeng Soetigna pada tahun 1938.
+                                        Angklung ini menggunakan tangga nada diatonis dan dapat dimainkan dalam orkestra
+                                        musik Barat. Inovasi ini memungkinkan angklung untuk dimainkan bersama alat
+                                        musik modern lainnya, sehingga memperluas jangkauan dan popularitas angklung di
+                                        tingkat internasional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="angklung-card bg-white rounded-lg shadow-lg cursor-pointer">
+                        <div class="relative h-64">
+                            <img src="assets/image-slide-6.png" alt="Angklung Sarinande"
+                                class="w-full h-full object-cover rounded-t-lg">
+                            <div class="card-content bg-white">
+                                <h3 class="text-base md:text-lg font-bold">ANGKLUNG SARINANDE</h3>
+                                <p class="text-xs md:text-sm opacity-90">Garut, Jawa Barat</p>
+                                <div class="card-description">
+                                    <p class="text-[10px] md:text-sm leading-relaxed">Angklung Sarinande berasal dari
+                                        angklung Padaeng yang telah mengalami modifikasi dengan nada yang lebih
+                                        harmonis, dengan suara yang lebih bervariatif. Angklung ini biasanya dimainkan
+                                        dalam ensemble atau grup musik tradisional. Sarinande sendiri berasal dari kata
+                                        "sari" yang berarti inti atau esensi, dan "nande" yang menunjukkan keindahan,
+                                        sehingga Angklung Sarinande dapat diartikan sebagai angklung yang memiliki
+                                        keindahan nada yang sempurna.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="angklung-card bg-white rounded-lg shadow-lg cursor-pointer">
+                        <div class="relative h-64">
+                            <img src="assets/image-slide-7.png" alt="Angklung Toel"
+                                class="w-full h-full object-cover rounded-t-lg">
+                            <div class="card-content bg-white">
+                                <h3 class="text-base md:text-lg font-bold">ANGKLUNG TOEL</h3>
+                                <p class="text-xs md:text-sm opacity-90">Banyumas, Jawa Barat</p>
+                                <div class="card-description">
+                                    <p class="text-[10px] md:text-sm leading-relaxed">Angklung Toel adalah angklung dari
+                                        Banyumas, Jawa Tengah yang memiliki ciri khas tersendiri. Berbeda dengan
+                                        angklung tradisional lainnya, Angklung Toel dimainkan dengan cara dipetik atau
+                                        "ditoel" (dalam bahasa Jawa berarti disentuh atau dipetik). Teknik permainan
+                                        yang unik ini menghasilkan suara yang berbeda dan memberikan nuansa musik yang
+                                        khas dari daerah Banyumas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brown-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm">&copy; 2025 MAÉNKLUNG. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const cards = document.querySelectorAll('.angklung-card');
+
+        let currentIndex = 0;
+        const cardWidth = 320;
+        const visibleCards = Math.floor(slider.offsetWidth / cardWidth);
+        const totalCards = cards.length;
+        const maxIndex = Math.max(0, totalCards - visibleCards);
+
+        function updateSlider() {
+            const scrollPosition = currentIndex * cardWidth;
+            slider.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex >= maxIndex;
+
+            if (prevBtn.disabled) {
+                prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+
+            if (nextBtn.disabled) {
+                nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('hovered');
+
+                const expandIcon = card.querySelector('.expand-icon');
+                if (expandIcon) {
+                    expandIcon.style.transform = 'scale(1.1)';
+                }
+
+                const cardRect = card.getBoundingClientRect();
+                const sliderRect = slider.getBoundingClientRect();
+
+                if (cardRect.right > sliderRect.right) {
+                    slider.scrollBy({
+                        left: cardRect.right - sliderRect.right + 20,
+                        behavior: 'smooth'
+                    });
+                } else if (cardRect.left < sliderRect.left) {
+                    slider.scrollBy({
+                        left: cardRect.left - sliderRect.left - 20,
+                        behavior: 'smooth'
+                    });
+                }
+                const scrollLeft = slider.scrollLeft;
+                const sliderWidth = slider.offsetWidth;
+                const cardLeft = card.offsetLeft;
+                const cardWidth = card.offsetWidth;
+
+                if (cardLeft < scrollLeft) {
+                    slider.scrollTo({
+                        left: cardLeft - 20,
+                        behavior: 'smooth'
+                    });
+                } else if (cardLeft + cardWidth > scrollLeft + sliderWidth) {
+                    slider.scrollTo({
+                        left: cardLeft + cardWidth - sliderWidth + 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('hovered');
+
+                const expandIcon = card.querySelector('.expand-icon');
+                if (expandIcon) {
+                    expandIcon.style.transform = 'scale(1)';
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+
+    </script>
+</body>
+
+</html>
